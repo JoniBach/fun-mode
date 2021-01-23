@@ -45,7 +45,7 @@ export const Card = (props) => {
         onMouseDown={() =>
           props.hiddenContent
             ? setExpandSecretMenu(true)
-            : (window.location.href = "http://google.com")
+            : (window.location.href = props.link)
         }
       >
         {props.children}

@@ -7,8 +7,8 @@ export const ProductList = (props) => {
 export const ProductListItem = (props) => {
   return (
     // <li>
-    <Card row={true}>
-      <CardMedia src={props.src} height={200} width={200}></CardMedia>
+    <Card row={true} p={props.p} link={props.link}>
+      <CardMedia src={props.src} height={150} width={150}></CardMedia>
       <div style={{  textAlign: props.textAlign ? props.textAlign : "left"  }}>
         {/* <CardMedia>s */}
           <div style={{paddingLeft: 10}}>{props.children}</div>
