@@ -1,6 +1,6 @@
 import "./App.css";
 import { Nav } from "./components/nav/nav";
-import { Card, CardMedia } from "./components/card/card";
+import { Card, CardContent } from "./components/card/card";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ProductListView } from "./views/productListView";
 import { ProductDetailsView } from "./views/productDetailsView";
@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Card link="/products">
-              <CardMedia>See products here</CardMedia>
+              <CardContent>See products here</CardContent>
             </Card>
           </Route>
           <Route path="/products">

@@ -1,4 +1,4 @@
-import { Card, CardMedia } from "../card/card";
+import { Card, CardContent } from "../card/card";
 
 export const ProductList = (props) => {
   return <div>{props.children}</div>;
@@ -8,11 +8,11 @@ export const ProductListItem = (props) => {
   return (
     // <li>
     <Card row={true} p={props.p} link={props.link}>
-      <CardMedia src={props.src} height={150} width={150}></CardMedia>
+      <CardContent src={props.src} height={150} width={150}></CardContent>
       <div style={{  textAlign: props.textAlign ? props.textAlign : "left"  }}>
-        {/* <CardMedia>s */}
+        {/* <CardContent>s */}
           <div style={{paddingLeft: 10}}>{props.children}</div>
-        {/* </CardMedia> */}
+        {/* </CardContent> */}
       </div>
     </Card>
     // </li>

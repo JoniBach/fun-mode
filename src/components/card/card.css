@@ -2,7 +2,6 @@
     background-color: orange;
     transition: .25s;
     border-radius: 20px;
-    cursor: pointer;
     position: relative;
     margin-bottom: 20px;
 
@@ -13,8 +12,9 @@
 .expanding-content {
     transition: max-height 0.25s ease-in;
 }
-.card:hover {
+.card-hover:hover {
     background-color: DarkTurquoise;
+    cursor: pointer;
 }
 .card-expand {
     background-color: DarkTurquoise;

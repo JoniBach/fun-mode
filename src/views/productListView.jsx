@@ -1,4 +1,4 @@
-import { Card, CardMedia } from "../components/card/card";
+import { Card, CardContent } from "../components/card/card";
 import { ProductList, ProductListItem } from "../components/list/list";
 
 export function ProductListView() {
@@ -15,8 +15,8 @@ export function ProductListView() {
         }
         p={10}
       >
-        <CardMedia src="https://api.time.com/wp-content/uploads/2016/03/national-puppy-day.jpg" />
-        <CardMedia>hi</CardMedia>
+        <CardContent src="https://api.time.com/wp-content/uploads/2016/03/national-puppy-day.jpg" />
+        <CardContent>hi</CardContent>
       </Card>
       <ProductList>
         <ProductListItem

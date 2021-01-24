@@ -2,7 +2,7 @@ import "./card.css";
 import "../button/button.css";
 import { useState } from "react";
 
-export const CardMedia = (props) => {
+export const CardContent = (props) => {
   return (
     <div
       style={{
@@ -30,11 +30,19 @@ export const CardMedia = (props) => {
 
 export const Card = (props) => {
   const [expandSecretMenu, setExpandSecretMenu] = useState(false);
+  const handleClick = () => {
+      if (props.hiddenContent) {
+        setExpandSecretMenu(true)
+      } else if (props.link) {
+        window.location.href = props.link
+      } else {}
+  }
   return (
     <div class="card-container">
       <div
         class={`
   card
+  ${props.link || props.hiddenContent ? "card-hover" : ""}
   ${`${expandSecretMenu ? "card-expand" : ""}`}
   `}
         style={{
@@ -42,11 +50,7 @@ export const Card = (props) => {
           display: props.row ? "flex" : "auto",
           flexDirection: props.row ? "row" : "auto",
         }}
-        onMouseDown={() =>
-          props.hiddenContent
-            ? setExpandSecretMenu(true)
-            : (window.location.href = props.link)
-        }
+        onMouseDown={() => handleClick()}
       >
         {props.children}
         {expandSecretMenu ? (
