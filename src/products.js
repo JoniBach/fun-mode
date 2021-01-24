@@ -3,7 +3,12 @@ export const products = [
         id: '001',
         title: 'HP 250 G7', 
         subTitle: 'Laptop',
-        image: 'https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&width=200&height=200&switchoff=enabled',
+        images: [
+            'https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled',
+            'https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled',
+            'https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled',
+            'https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled',
+        ],
         details: [
             {
                 label: 'CPU',
@@ -27,7 +32,11 @@ export const products = [
         id: '002',
         title: 'Lenovo V15 IIL', 
         subTitle: 'Laptop',
-        image: 'https://www.laptopsdirect.co.uk/Images/82C50075UK_1_classic.jpg?v=3&width=200&height=200&switchoff=enabled',
+        images: [
+            'https://www.laptopsdirect.co.uk/Images/82C50075UK_1_classic.jpg?v=3&switchoff=enabled',
+            'https://www.laptopsdirect.co.uk/Images/82C50075UK_1_classic.jpg?v=3&switchoff=enabled',
+            'https://www.laptopsdirect.co.uk/Images/82C50075UK_1_classic.jpg?v=3&switchoff=enabled',
+        ],
         details: [
             {
                 label: 'CPU',
@@ -51,7 +60,11 @@ export const products = [
         id: '003',
         title: 'MSI GF63 Thin', 
         subTitle: 'Gaming Laptop',
-        image: 'https://www.laptopsdirect.co.uk/Images/9S7-16R412-1069_1_Supersize.png?width=937&height=937&v=3',
+        images: [
+            'https://www.laptopsdirect.co.uk/Images/9S7-16R412-1069_1_Supersize.png?width=937&height=937&v=3',
+            'https://www.laptopsdirect.co.uk/Images/9S7-16R412-1069_1_Supersize.png?width=937&height=937&v=3',
+            'https://www.laptopsdirect.co.uk/Images/9S7-16R412-1069_1_Supersize.png?width=937&height=937&v=3',
+        ] ,
         details: [
             {
                 label: 'CPU',

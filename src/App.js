@@ -1,7 +1,7 @@
 import "./App.css";
 import { Nav } from "./components/nav/nav";
 import { Card, CardContent } from "./components/card/card";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, useRouteMatch } from "react-router-dom";
 import { ProductListView } from "./views/productListView";
 import { ProductDetailsView } from "./views/productDetailsView";
 
@@ -21,23 +21,31 @@ function App() {
           </ul>
         }
       ></Nav>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Card link="/products">
-              <CardContent>See products here</CardContent>
-            </Card>
-          </Route>
-          <Route path="/products">
-            <ProductListView />
-          </Route>
-          <Route path="/product/:id">
-            <ProductDetailsView />
-          </Route>
-        </Switch>
-      </Router>
+      <HashRouter basename="/">
+        {/* <Switch> */}
+        <Route exact path="/">
+          {" "}
+          <Card link={`${process.env.PUBLIC_URL}/#/products/`}>
+            <CardContent>See products here</CardContent>
+          </Card>
+        </Route>
+
+        <Route path="/products" component={ProductListViewHash}></Route>
+        <Route path="/product/:id" component={ProductDetailsViewHash}></Route>
+        {/* </Switch> */}
+      </HashRouter>
     </div>
   );
 }
 
+const ProductListViewHash = () => (
+  <div>
+    <ProductListView />
+  </div>
+);
+const ProductDetailsViewHash = () => (
+  <div>
+    <ProductDetailsView />
+  </div>
+);
 export default App;

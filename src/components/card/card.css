@@ -7,7 +7,17 @@
 
 }
 
-.card-container {
+.card-content {
+    /* borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20, */
+    /* height: 0px; */
+    /* transition: .25; */
+    overflow-x: scroll;
+    overflow: auto; 
+
+
 }
 .expanding-content {
     transition: max-height 0.25s ease-in;
