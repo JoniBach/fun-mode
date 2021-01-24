@@ -9,19 +9,17 @@ export const CardContent = (props) => {
         width: props.src ? (props.width ? props.width : "100%") : "auto",
         height: props.src ? (props.height ? props.height : 400) : "auto",
         // backgroundImage: `url(${props.src})`,
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
-        borderBottomRightRadius: 20,
+     
         // backgroundRepeat: "no-repeat",
         // backgroundPosition: "center",
         // backgroundSize: "cover",
         boxShadow: props.shadow ? "inset 0 0 20px #000000" : "",
         // border: props.src ? "2px solid rgba(2, 2, 2, 0.7" : "",
         // boxShadow: '5px 5px 5px rgba(68,68,68,0.6)',
-        filter:
-          "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)",
+        // filter:
+        //   "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)",
       }}
+      // className='card-content'
     >
       {
         props.src ? (
@@ -36,7 +34,7 @@ export const CardContent = (props) => {
           }}
         />
         ) : (
-          <div className="container" style={{ padding: props.p ? props.p : 20 }}>
+          <div className="card-content " style={{ padding: props.p ? props.p : 20 }}>
           {props.children}
         </div>
         )

@@ -19,7 +19,7 @@ export function ProductListView() {
         <CardContent>hi</CardContent>
       </Card> */}
       {products.map((p, i) => (
-        <ProductListItem p={10} src={p.image} link={`/product/${p.id}`}>
+        <ProductListItem p={10} src={p.images[0]} link={`/product/${p.id}`}>
           <h5 style={{marginBlock: 5}}>{p.subTitle}</h5>
           <h2 style={{marginBlock: 5}}>{p.title}</h2>
           {p.details.map((d, i) => (

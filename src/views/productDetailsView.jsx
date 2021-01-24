@@ -7,7 +7,8 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import AddIcon from "@material-ui/icons/Add";
 import { IconButton } from "../components/button/button";
-import CheckIcon from '@material-ui/icons/Check';
+import CheckIcon from "@material-ui/icons/Check";
+import { Carousel, CarouselCard } from "../components/carousel/carousel";
 export function ProductDetailsView() {
   let { id } = useParams();
   const [productData, setProductData] = useState({});
@@ -35,10 +36,17 @@ export function ProductDetailsView() {
   } else {
     return (
       <Card>
-        <CardContent  icon={<CheckIcon />}>
-        &#10004; In Stock
-          </CardContent>
-        <CardContent src={productData.image} />
+        <CardContent icon={<CheckIcon />}>&#10004; In Stock</CardContent>
+        {/* <CardContent src={productData.image} /> */}
+        <Carousel height={400}>
+          {
+          productData.images.map((d,i) => (
+          <CarouselCard src={d} />
+          // <CarouselCard src="https://c8.alamy.com/comp/WXFRPC/portrait-of-puppies-border-collie-in-a-basket-in-front-of-white-background-WXFRPC.jpg" />
+
+          ))
+          }
+        </Carousel>
         <CardContent>
           <h6>
             <b>{productData.subTitle}</b> : {productData.id}
