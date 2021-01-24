@@ -7,25 +7,40 @@ export const CardContent = (props) => {
     <div
       style={{
         width: props.src ? (props.width ? props.width : "100%") : "auto",
-        height: props.src ? (props.height ? props.height : 200) : "auto",
-        backgroundImage: `url(${props.src})`,
+        height: props.src ? (props.height ? props.height : 400) : "auto",
+        // backgroundImage: `url(${props.src})`,
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        boxShadow: props.src || props.shadow ? "inset 0 0 20px #000000" : "",
+        // backgroundRepeat: "no-repeat",
+        // backgroundPosition: "center",
+        // backgroundSize: "cover",
+        boxShadow: props.shadow ? "inset 0 0 20px #000000" : "",
         // border: props.src ? "2px solid rgba(2, 2, 2, 0.7" : "",
         // boxShadow: '5px 5px 5px rgba(68,68,68,0.6)',
         filter:
           "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)",
       }}
     >
-      <div className="container" style={{ padding: props.p ? props.p : 20 }}>
-        {props.children}
-      </div>
+      {
+        props.src ? (
+          <img
+          alt={props.src}
+          src={props.src}
+          style={{
+            width: props.width ? props.width : 'auto',
+            height: props.src ? (props.height ? props.height : 400) : "auto",
+            borderRadius: "25px",
+            boxShadow: "inset 0 0 20px #000000",
+          }}
+        />
+        ) : (
+          <div className="container" style={{ padding: props.p ? props.p : 20 }}>
+          {props.children}
+        </div>
+        )
+      }
     </div>
   );
 };
@@ -33,12 +48,13 @@ export const CardContent = (props) => {
 export const Card = (props) => {
   const [expandSecretMenu, setExpandSecretMenu] = useState(false);
   const handleClick = () => {
-      if (props.hiddenContent) {
-        setExpandSecretMenu(true)
-      } else if (props.link) {
-        window.location.href = props.link
-      } else {}
-  }
+    if (props.hiddenContent) {
+      setExpandSecretMenu(true);
+    } else if (props.link) {
+      window.location.href = props.link;
+    } else {
+    }
+  };
   return (
     <div class="card-container">
       <div
