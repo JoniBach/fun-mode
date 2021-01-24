@@ -31,7 +31,6 @@ export function ProductListView() {
           ))}
         </ProductListItem>
       ))}
-      <ProductList></ProductList>
     </div>
   );
 }

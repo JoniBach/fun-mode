@@ -37,3 +37,54 @@
     background-color: orange;
     padding: 12px 16px; /* Some padding */
   }
+
+  .main-btn {
+    /* line-height: 20px; */
+    margin: 5px;
+    text-align: center;
+    flex-direction: row;
+    transition: .25s;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    /* box-shadow: inset 0px 0px 3px 0px #000000, 0px 0px 5px 0px #000000; */
+  }
+  .icon-btn-hover{
+    box-shadow: inset 0px 0px 2px 0px #000000, 0px 0px 5px 0px #000000;
+    background: orange;
+    border-radius: 50%;
+    border: 1px solid #222;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    transition: .25s
+  }
+  .main-btn-icon {
+    background: orange;
+    border-radius: 50%;
+    border: 1px solid #222;
+    box-shadow: inset 0px 0px 3px 0px #00000079;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    transition: .25s
+    
+  }
+  .main-btn-text {
+    /* padding: 10px; */
+    /* height: 10px; */
+    /* line-height: 50px; */
+    text-align: center;
+    padding-left: 5px;
+    /* border:1px solid #222 */
+    /* 10 - 50 */
+    /* 02 - 30*/
+    /* position: absolute; */
+    /* top: 50%; */
+    /* transform: translate(0%, -50%);   */
+  }
+
+  .text-container {
+    /* position: relative; */
+  }

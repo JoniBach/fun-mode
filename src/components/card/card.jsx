@@ -9,12 +9,14 @@ export const CardContent = (props) => {
         width: props.src ? (props.width ? props.width : "100%") : "auto",
         height: props.src ? (props.height ? props.height : 200) : "auto",
         backgroundImage: `url(${props.src})`,
-        borderRadius: 20,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
-
-        boxShadow: props.src ? "inset 0 0 20px #000000" : "",
+        boxShadow: props.src || props.shadow ? "inset 0 0 20px #000000" : "",
         // border: props.src ? "2px solid rgba(2, 2, 2, 0.7" : "",
         // boxShadow: '5px 5px 5px rgba(68,68,68,0.6)',
         filter:

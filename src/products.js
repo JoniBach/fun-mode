@@ -25,7 +25,7 @@ export const products = [
     },
     {
         id: '002',
-        title: 'Lenovo V15=IIL', 
+        title: 'Lenovo V15 IIL', 
         subTitle: 'Laptop',
         image: 'https://www.laptopsdirect.co.uk/Images/82C50075UK_1_classic.jpg?v=3&width=200&height=200&switchoff=enabled',
         details: [
