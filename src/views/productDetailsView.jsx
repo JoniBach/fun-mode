@@ -65,7 +65,7 @@ export function ProductDetailsView() {
               <th>{productData.title}</th>
               <th>
                 <th>
-                  <IconButton lineHeight="30px" iconSize={2} icon={<AddIcon />}>
+                  <IconButton backgroundColor="#bbb" lineHeight="30px" iconSize={2} icon={<AddIcon />}>
                     COMPARE
                   </IconButton>
                 </th>

@@ -1,5 +1,5 @@
 .card {
-    background-color: orange;
+    background-color: #222;
     transition: .25s;
     border-radius: 20px;
     position: relative;
@@ -23,11 +23,11 @@
     transition: max-height 0.25s ease-in;
 }
 .card-hover:hover {
-    background-color: DarkTurquoise;
+    background-color: #111;
     cursor: pointer;
 }
 .card-expand {
-    background-color: DarkTurquoise;
+    background-color: #111;
     cursor:auto;
     max-height: 100vh;
 

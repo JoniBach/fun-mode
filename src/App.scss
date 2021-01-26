@@ -1,0 +1,63 @@
+
+body {
+  /* background: #222; */
+  /* background-image: url("https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1600&q=60"); */
+  color: #bbb;
+  /* background-size: cover; */
+  /* background-size: auto 100%; */
+  font-weight: bold;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  margin: 20px;
+  line-height: 25px;
+  /* background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); */
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+  /* background:     repeating-radial-gradient(
+    circle at 0 0, 
+    #eee,
+    #ccc 50px
+  );;
+  background-size: 400% 400%; */
+  /* animation: gradient 15s ease infinite; */
+}
+h6 {
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+}
+h2 {
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+}
+
+@function grad($ang: 1turn) {
+  @return linear-gradient($ang, #f90 50%, #444 0);
+}
+
+html {
+   background: linear-gradient(-45deg, coral, #e73c7e, rgb(61, 61, 255), #04ffff); 
+
+	// background: linear-gradient(-90deg, coral, red, #0f4c81, #0e8080, #0f4c81, red,coral, red, #0f4c81);
+	background-size: 400% 400%;
+	animation: gradient 40s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 0%;
+  }
+  20% {
+		background-position: 20% 20%;
+  }
+  40% {
+		background-position: 40% 40%;
+  }
+  60% {
+		background-position: 60% 60%;
+  }
+  80% {
+		background-position: 80% 80%;
+	}
+	100% {
+		background-position: 100% 0%;
+	}
+}

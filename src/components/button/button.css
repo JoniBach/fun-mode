@@ -1,6 +1,6 @@
 /* Style buttons */
 .btn {
-    background-color: orange; /* Blue background */
+    background-color: #222; /* Blue background */
     border: none; /* Remove borders */
     padding: 12px 16px; /* Some padding */
     font-size: 16px; /* Set a font size */
@@ -8,21 +8,25 @@
     border-top-left-radius: 50%;
     transition: .25s;
     font-weight: bold;
+    color: #bbb;
+
   }
   
   /* Darker background on mouse-over */
   .btn:hover {
-    background-color: DarkTurquoise;
+    background-color: #111;
+    color: #bbb;
     padding: 12px 16px; /* Some padding */
   }
   /* Style buttons */
 .btn-r {
-    background-color: DarkTurquoise; /* Blue background */
+    background-color: #111; /* Blue background */
     border: none; /* Remove borders */
     padding: 12px 16px; /* Some padding */
     font-size: 16px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
     border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
     transition: .25s;
     font-weight: bold;
     position:absolute;
@@ -30,12 +34,14 @@
     right: 0%;
     border-left: 10px solid #222;
     border-bottom: 10px solid #222;
+    color: #bbb
   }
   
   /* Darker background on mouse-over */
   .btn-r:hover {
-    background-color: orange;
+    background-color: #888;
     padding: 12px 16px; /* Some padding */
+    color: #222
   }
 
   .main-btn {
@@ -52,7 +58,7 @@
   }
   .icon-btn-hover{
     box-shadow: inset 0px 0px 2px 0px #000000, 0px 0px 5px 0px #000000;
-    background: orange;
+    background: #222;
     border-radius: 50%;
     border: 1px solid #222;
     height: 25px;
@@ -61,14 +67,15 @@
     transition: .25s
   }
   .main-btn-icon {
-    background: orange;
+    background: #222;
     border-radius: 50%;
     border: 1px solid #222;
     box-shadow: inset 0px 0px 3px 0px #00000079;
     height: 25px;
     line-height: 25px;
     text-align: center;
-    transition: .25s
+    transition: .25s;
+    
     
   }
   .main-btn-text {
@@ -83,6 +90,7 @@
     /* position: absolute; */
     /* top: 50%; */
     /* transform: translate(0%, -50%);   */
+    color: #bbb;
   }
 
   .text-container {

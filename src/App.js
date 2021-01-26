@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Nav } from "./components/nav/nav";
 import { Card, CardContent } from "./components/card/card";
 import { HashRouter, Switch, Route, useRouteMatch } from "react-router-dom";
