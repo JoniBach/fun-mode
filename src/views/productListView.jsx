@@ -21,7 +21,10 @@ export function ProductListView() {
 
       return base.filter((f) => {
         const containsAll = splitSearchText(searchText).every(elem => splitSearchText(f.concat).indexOf(elem) > -1);
-        return containsAll
+        return (
+          containsAll || f.concat.toLowerCase().includes(searchText.toLowerCase())
+
+          )
       });
     };
     return filterSearch(searchText);
