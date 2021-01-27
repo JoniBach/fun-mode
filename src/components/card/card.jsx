@@ -69,14 +69,17 @@ export const Card = (props) => {
         onMouseDown={() => handleClick()}
       >
         {props.children}
-        {expandSecretMenu ? (
+        {expandSecretMenu || props.openDrawer ? (
           <div>
-            <button
-              onMouseUp={() => setExpandSecretMenu(!expandSecretMenu)}
-              class="btn-r"
-            >
-              X
-            </button>
+            {
+              !props.openDrawer && (<button
+                onMouseUp={() => setExpandSecretMenu(!expandSecretMenu)}
+                class="btn-r"
+              >
+                X
+              </button>)
+            }
+            
             {props.hiddenContent}
           </div>
         ) : null}

@@ -1,0 +1,17 @@
+.text-field {
+    /* background-color: transparent; */
+    color: #bbb;
+    border: 1px solid #bbb;
+    width: 100%;
+    box-sizing: border-box; /* add this */
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;    border-radius: 15px;
+    background-color: #222;
+    font-size: larger;
+    padding: 10px;
+    position: relative;
+}
+.text-field:focus {
+    outline-width: 0;
+    border: 2px solid #bbb;
+}

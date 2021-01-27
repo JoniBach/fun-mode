@@ -38,7 +38,7 @@ html {
 
 	// background: linear-gradient(-90deg, coral, red, #0f4c81, #0e8080, #0f4c81, red,coral, red, #0f4c81);
 	background-size: 400% 400%;
-	animation: gradient 40s ease infinite;
+	animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
@@ -46,18 +46,21 @@ html {
 		background-position: 0% 0%;
   }
   20% {
-		background-position: 20% 20%;
+		background-position: 40% 0%;
   }
   40% {
-		background-position: 40% 40%;
+		background-position: 80% 0%;
+  }
+  50% {
+		background-position: 100% 0%;
   }
   60% {
-		background-position: 60% 60%;
+		background-position: 80% 0%;
   }
   80% {
-		background-position: 80% 80%;
+		background-position: 40% 0%;
 	}
 	100% {
-		background-position: 100% 0%;
+		background-position: 0% 0%;
 	}
 }
