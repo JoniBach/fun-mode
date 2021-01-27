@@ -4,12 +4,11 @@ import { ProductList, ProductListItem } from "../components/list/list";
 import { SearchBar } from "../components/search/search";
 import { products } from "../products";
 export function ProductListView() {
-  //   let match = useRouteMatch();
   const [searchText, setSearchText] = useState("");
-  
+
   const handleSearch = () => {
-    const splitSearchText = (str) => str.split(/[ ,]+/);
-    const filter = (text) => {
+    const splitSearchText = (str) => str.toLowerCase().split(/[ ,]+/);
+    const filterSearch = (text) => {
       const base = products.map((product) => {
         const compoundString = {
           ...product,
@@ -19,36 +18,17 @@ export function ProductListView() {
         };
         return compoundString;
       });
-      console.log("base", base);
 
       return base.filter((f) => {
-        return f.concat.toLowerCase().includes(text.toLowerCase());
+        const containsAll = splitSearchText(searchText).every(elem => splitSearchText(f.concat).indexOf(elem) > -1);
+        return containsAll
       });
     };
-    console.log(splitSearchText(searchText))
-    // const splitSearchText = formatCriteria(searchText).map((text) =>
-    //   filter(text)
-    // );
-    // console.log("split text", splitSearchText);
-
-    return filter(searchText);
+    return filterSearch(searchText);
   };
-  console.log(handleSearch());
   return (
     <div>
-      {/* <Card
-        hiddenContent={
-          <div>
-            <div>hi</div>
-            <div>how are ya?</div>
-            <div>come an av some toast!</div>
-          </div>
-        }
-        p={10}
-      >
-        <CardContent src="https://api.time.com/wp-content/uploads/2016/03/national-puppy-day.jpg" />
-        <CardContent>hi</CardContent>
-      </Card> */}
+
       <SearchBar
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
@@ -98,19 +78,19 @@ export function ProductListView() {
     </div>
   );
 }
-    // const oldFilter = (text) => {
-    //   return products.filter((product) => {
-    //     return (
-    //       product.title.toLowerCase().includes(text.toLowerCase()) ||
-    //       product.subTitle.toLowerCase().includes(text.toLowerCase()) ||
-    //       product.details
-    //         .map((d) => d.content + d.label)
-    //         .toString()
-    //         .toLowerCase()
-    //         .includes(text.toLowerCase())
-    //       // product.details.map((d, i) => (
-    //       //   mapDetails().PUBLIC_URLtoLowerCase().includes(searchText.toLowerCase())
-    //       // ))
-    //     );
-    //   });
-    // };
+// const oldFilter = (text) => {
+//   return products.filter((product) => {
+//     return (
+//       product.title.toLowerCase().includes(text.toLowerCase()) ||
+//       product.subTitle.toLowerCase().includes(text.toLowerCase()) ||
+//       product.details
+//         .map((d) => d.content + d.label)
+//         .toString()
+//         .toLowerCase()
+//         .includes(text.toLowerCase())
+//       // product.details.map((d, i) => (
+//       //   mapDetails().PUBLIC_URLtoLowerCase().includes(searchText.toLowerCase())
+//       // ))
+//     );
+//   });
+// };
