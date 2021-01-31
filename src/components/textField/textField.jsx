@@ -3,19 +3,30 @@ import './textField.css'
 
 export const TextField = (props) => {
     const [text, setText] = useState('')
-    console.log(text)
     return (
         <div>
-            {/* <label 
+            {props.label && (
+                <>
+                      <label 
             htmlFor
             >
                 {props.label}
-            </label> */}
+            </label>
+            <br/>
+            </>
+
+            )}
+      
             <input
             className='text-field' 
             value={props.value}
             onChange={props.onChange}
             placeholder={props.placeholder}
+            style={{
+                marginBottom: props.mb ? props.mb : 0,
+                marginTop: props.mt ? props.mt : 0,
+                width: props.width ? props.width : 'auto' ,
+            }}
             
             // onChange={(event) => setText(event.target.value)}
             // placeholderText={props.placeholderText}

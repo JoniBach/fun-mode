@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Card, CardContent } from "../components/card/card";
 import { ProductList, ProductListItem } from "../components/list/list";
 import { SearchBar } from "../components/search/search";
-import { products } from "../products";
+import {NewProductsContext} from '../contexts/newProductContext'
+
 export function ProductListView() {
   const [searchText, setSearchText] = useState("");
+  const [newProducts, setNewProducts] = useContext(NewProductsContext);
+
 
   const handleSearch = () => {
     const splitSearchText = (str) => str.toLowerCase().split(/[ ,]+/);
     const filterSearch = (text) => {
-      const base = products.map((product) => {
+      const base = newProducts.map((product) => {
         const compoundString = {
           ...product,
           concat: `${product.title} ${product.subTitle} ${product.details.map(
@@ -36,7 +39,8 @@ export function ProductListView() {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="Find a product..."
-        label="Search"
+        width='100%'
+        // label="Search"
         backgroundColour="transparent"
         variant="outline"
         pDrawer={5}
@@ -59,7 +63,7 @@ export function ProductListView() {
           </ProductListItem>
         ))}
       </SearchBar>
-      {products.map((p, i) => (
+      {newProducts.map((p, i) => (
         <ProductListItem
           p={10}
           src={p.images[0]}
@@ -82,7 +86,7 @@ export function ProductListView() {
   );
 }
 // const oldFilter = (text) => {
-//   return products.filter((product) => {
+//   return newProducts.filter((product) => {
 //     return (
 //       product.title.toLowerCase().includes(text.toLowerCase()) ||
 //       product.subTitle.toLowerCase().includes(text.toLowerCase()) ||

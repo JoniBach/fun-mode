@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Card, CardContent } from "../components/card/card";
 import { products } from "../products";
@@ -8,11 +8,13 @@ import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import AddIcon from "@material-ui/icons/Add";
 import { IconButton } from "../components/button/button";
 import CheckIcon from "@material-ui/icons/Check";
+import {NewProductsContext} from '../contexts/newProductContext'
 import { Carousel, CarouselCard } from "../components/carousel/carousel";
 export function ProductDetailsView() {
   let { id } = useParams();
   const [productData, setProductData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [newProducts, setNewProducts] = useContext(NewProductsContext);
 
   useEffect(() => {
     setProductData(getProductData(id));
@@ -21,7 +23,7 @@ export function ProductDetailsView() {
 
   const getProductData = () => {
     // products.find(x => x.id === '45').foo;
-    const data = products.find((obj) => obj.id === id);
+    const data = newProducts.find((obj) => obj.id === id);
     return data;
   };
 
@@ -58,6 +60,8 @@ export function ProductDetailsView() {
             ))}
           </h2>
         </CardContent>
+
+        
         <CardContent shadow={true}>
           <table id="vertical-1">
             <tr>

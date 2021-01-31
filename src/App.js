@@ -4,6 +4,7 @@ import { Card, CardContent } from "./components/card/card";
 import { HashRouter, Switch, Route, useRouteMatch } from "react-router-dom";
 import { ProductListView } from "./views/productListView";
 import { ProductDetailsView } from "./views/productDetailsView";
+import { NewProductView } from "./views/newProductView";
 
 function App() {
   return (
@@ -28,10 +29,15 @@ function App() {
           <Card link={`${process.env.PUBLIC_URL}/#/products/`}>
             <CardContent>See products here</CardContent>
           </Card>
+          <Card link={`${process.env.PUBLIC_URL}/#/newproduct/`}>
+            <CardContent>Add products here</CardContent>
+          </Card>
         </Route>
 
         <Route path="/products" component={ProductListViewHash}></Route>
         <Route path="/product/:id" component={ProductDetailsViewHash}></Route>
+        <Route path="/newproduct" component={NewProductViewHash}></Route>
+        
         {/* </Switch> */}
       </HashRouter>
     </div>
@@ -46,6 +52,11 @@ const ProductListViewHash = () => (
 const ProductDetailsViewHash = () => (
   <div>
     <ProductDetailsView />
+  </div>
+);
+const NewProductViewHash = () => (
+  <div>
+    <NewProductView />
   </div>
 );
 export default App;
