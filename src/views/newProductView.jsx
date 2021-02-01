@@ -39,7 +39,6 @@ export function NewProductView() {
       [key]: value,
     });
   };
-  console.log(newProductData);
   const hList = (text) => {
     return <>&nbsp;&#9642;&nbsp;{text.toUpperCase()}</>;
   };
@@ -91,16 +90,20 @@ export function NewProductView() {
       window.location.href = `${process.env.PUBLIC_URL}/#/products/`;
     } else {
       const fields = [
-        newProductData.title ? false : 'Name',
-        newProductData.subTitle ? false : 'Title',
-        newProductData.images.length !== 0 ? false : 'Images',
-        newProductData.content_cpu ? false : 'CPU',
-        newProductData.content_gpu ? false : 'GPU',
-        newProductData.content_ram ? false : 'RAM',
-        newProductData.content_storage ? false : 'Storage',
-        newProductData.content_screen ? false : 'Screen',
+        newProductData.title ? false : "Name",
+        newProductData.subTitle ? false : "Title",
+        newProductData.images.length !== 0 ? false : "Images",
+        newProductData.content_cpu ? false : "CPU",
+        newProductData.content_gpu ? false : "GPU",
+        newProductData.content_ram ? false : "RAM",
+        newProductData.content_storage ? false : "Storage",
+        newProductData.content_screen ? false : "Screen",
       ];
-      alert(`Please fill the following fields: ${fields.map(d => d? `${d}, ` : '').join('')}`);
+      alert(
+        `Please fill the following fields: ${fields
+          .map((d) => (d ? `${d}, ` : ""))
+          .join("")}`
+      );
     }
   };
 
@@ -143,8 +146,10 @@ export function NewProductView() {
       </CardContent>
       <form id="new-product" onSubmit={(event) => handleSubmit(event)}>
         <CardContent shadow={true}>
+          {console.log(newProductData)}
           {fields.map((d, i) => (
             <TextField
+              error={newProductData[d]}
               value={newProductData[d]}
               onChange={(e) => handleForm(d.key, e.target.value, d.content)}
               placeholder={`${d.example} . . .`}

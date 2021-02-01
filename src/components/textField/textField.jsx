@@ -26,6 +26,8 @@ export const TextField = (props) => {
                 marginBottom: props.mb ? props.mb : 0,
                 marginTop: props.mt ? props.mt : 0,
                 width: props.width ? props.width : 'auto' ,
+                backgroundColor: props.backgroundColor ? props.backgroundColor : 'transparent' ,
+                border: props.error ? 'dotted 2px red' : 'auto'
             }}
             
             // onChange={(event) => setText(event.target.value)}

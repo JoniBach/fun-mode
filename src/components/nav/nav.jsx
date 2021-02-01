@@ -1,14 +1,21 @@
 import "./nav.css";
 import "./button.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/MenuRounded";
 export const Nav = (props) => {
   const [expandHamburgerMenu, setExpandHamburgerMenu] = useState(false);
   const [expandSecretMenu, setExpandSecretMenu] = useState(false);
   const [hamburgershrink, setHamburgerShrink] = useState(false);
   const [secretMenuShrink, setSecretMenuShrink] = useState(false);
+
+  const handleClose = () => {
+    console.log('lol')
+    setExpandHamburgerMenu(false)
+  }
+
   return (
     <div>
+     
       <div id="c">
         <div
           class={`circle-border a 
@@ -16,14 +23,14 @@ export const Nav = (props) => {
           ${secretMenuShrink ? "a-hover" : ""} 
           ${expandSecretMenu ? "a-expand" : ""}
           `}
-          onClick={() => setExpandSecretMenu(true)}
+          onClick={() => !expandSecretMenu ? setExpandSecretMenu(true) : null}
           onMouseEnter={() => setSecretMenuShrink(true)}
           onMouseLeave={() => setSecretMenuShrink(false)}
         >
           {expandSecretMenu ? (
             <div>
               <button
-                onMouseDown={() => setExpandSecretMenu(false)}
+                onClick={() => setExpandSecretMenu(false)}
                 class="btn-r"
               >
                 X
@@ -43,19 +50,23 @@ export const Nav = (props) => {
           class={`circle-border circle ${expandHamburgerMenu ? "expand" : ""} ${
             hamburgershrink ? "circle-hover" : ""
           }`}
-          onClick={() => setExpandHamburgerMenu(true)}
+          onClick={() => !expandHamburgerMenu ? setExpandHamburgerMenu(true) : null}
           onMouseEnter={() => setHamburgerShrink(true)}
           onMouseLeave={() => setHamburgerShrink(false)}
         >
           {expandHamburgerMenu ? (
             <div>
               <button
-                onMouseDown={() => setExpandHamburgerMenu(false)}
+              id='close-hamburger-menu'
                 class="btn"
+                onClick={() => setExpandHamburgerMenu(false)}
               >
                 X
               </button>
-              {props.hamburgerMenu}
+              <div onClick={() => setExpandHamburgerMenu(false)}>
+                {props.hamburgerMenu}
+              </div>
+     
             </div>
           ) : (
             <div class="content">
