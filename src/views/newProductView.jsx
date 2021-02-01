@@ -15,7 +15,7 @@ import { TextField } from "../components/textField/textField";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import { NewProductsContext } from "../contexts/newProductContext";
 import { v4 as uuidv4 } from "uuid";
-import {ImageUploader} from '../components/imageUploader/imageUploader'
+import { ImageUploader } from "../components/imageUploader/imageUploader";
 const fields = [
   { key: "title", example: "Microsoft Surface 3", value: "Product Name" },
   { key: "subTitle", example: "Laptop", value: "Product Type" },
@@ -39,21 +39,21 @@ export function NewProductView() {
       [key]: value,
     });
   };
-  console.log(newProductData)
+  console.log(newProductData);
   const hList = (text) => {
     return <>&nbsp;&#9642;&nbsp;{text.toUpperCase()}</>;
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (
-newProductData.title &&
-newProductData.subTitle &&
-newProductData.images &&
-newProductData.content_cpu &&
-newProductData.content_gpu &&
-newProductData.content_screen &&
-newProductData.content_storage 
-) {
+      newProductData.title &&
+      newProductData.subTitle &&
+      newProductData.images &&
+      newProductData.content_cpu &&
+      newProductData.content_gpu &&
+      newProductData.content_screen &&
+      newProductData.content_storage
+    ) {
       await setNewProducts([
         ...newProducts,
         {
@@ -88,20 +88,31 @@ newProductData.content_storage
       ]);
       await setNewProductData({});
       await document.getElementById("new-product").reset();
-       window.location.href = `${process.env.PUBLIC_URL}/#/products/`
+      window.location.href = `${process.env.PUBLIC_URL}/#/products/`;
     } else {
-      alert('Please fill all fields')
-    }  
-    
-    
-
+      const fields = [
+        newProductData.title ? false : 'Name',
+        newProductData.subTitle ? false : 'Title',
+        newProductData.images.length !== 0 ? false : 'Images',
+        newProductData.content_cpu ? false : 'CPU',
+        newProductData.content_gpu ? false : 'GPU',
+        newProductData.content_ram ? false : 'RAM',
+        newProductData.content_storage ? false : 'Storage',
+        newProductData.content_screen ? false : 'Screen',
+      ];
+      alert(`Please fill the following fields: ${fields.map(d => d? `${d}, ` : '').join('')}`);
+    }
   };
 
   return (
     <Card>
-        <CardContent icon={<CheckIcon />}>&#10004; In Draft</CardContent>
+      <CardContent icon={<CheckIcon />}>&#10004; In Draft</CardContent>
 
-      <ImageUploader handleImages={(e) => setNewProductData({...newProductData, images: e})} />
+      <ImageUploader
+        handleImages={(e) =>
+          setNewProductData({ ...newProductData, images: e })
+        }
+      />
 
       <CardContent>
         {newProductData.subTitle ? (
@@ -130,7 +141,7 @@ newProductData.content_storage
             : hList("storage")}
         </h2>
       </CardContent>
-      <form id='new-product' onSubmit={(event) => handleSubmit(event)}>
+      <form id="new-product" onSubmit={(event) => handleSubmit(event)}>
         <CardContent shadow={true}>
           {fields.map((d, i) => (
             <TextField
@@ -145,10 +156,9 @@ newProductData.content_storage
             />
           ))}
         </CardContent>
-        
+
         <CardContent>
-        
-        <IconButton
+          <IconButton
             backgroundColor="lightgreen"
             type="submit"
             icon={<PublishIcon />}
@@ -166,8 +176,8 @@ newProductData.content_storage
       </form>
 
       <Card link={`${process.env.PUBLIC_URL}/#/products/`}>
-            <CardContent>See products here</CardContent>
-          </Card>
+        <CardContent>See products here</CardContent>
+      </Card>
     </Card>
   );
 }
