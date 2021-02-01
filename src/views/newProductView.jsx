@@ -24,7 +24,7 @@ const fields = [
   { key: "content_ram", example: "16GB DDR4", value: "RAM", content: true },
   { key: "content_screen", example: '13.5"', value: "Screen", content: true },
   {
-    key: "content_STORAGE",
+    key: "content_storage",
     example: "500GB SSD",
     value: "Storage",
     content: true,
@@ -39,52 +39,69 @@ export function NewProductView() {
       [key]: value,
     });
   };
+  console.log(newProductData)
   const hList = (text) => {
     return <>&nbsp;&#9642;&nbsp;{text.toUpperCase()}</>;
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await setNewProducts([
-      ...newProducts,
-      {
-        id: `${Date.now()}-${uuidv4()}`,
-        title: newProductData.title,
-        subTitle: newProductData.subTitle,
-        images: [
-          "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
-          "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
-          "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
-        ],
-        details: [
-          {
-            content: newProductData.content_cpu,
-            label: "cpu",
-          },
-          {
-            content: newProductData.content_gpu,
-            label: "gpu",
-          },
-          {
-            content: newProductData.content_ram,
-            label: "ram",
-          },
-          {
-            content: newProductData.content_screen,
-            label: "screen",
-          },
-        ],
-      },
-    ]);
-    await setNewProductData({});
-    await document.getElementById("new-product").reset();
-     window.location.href = `${process.env.PUBLIC_URL}/#/products/`
+    if (
+newProductData.title &&
+newProductData.subTitle &&
+newProductData.images &&
+newProductData.content_cpu &&
+newProductData.content_gpu &&
+newProductData.content_screen &&
+newProductData.content_storage 
+) {
+      await setNewProducts([
+        ...newProducts,
+        {
+          id: `${Date.now()}-${uuidv4()}`,
+          title: newProductData.title,
+          subTitle: newProductData.subTitle,
+          // images: [
+          //   "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
+          //   "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
+          //   "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
+          // ],
+          images: newProductData.images,
+          details: [
+            {
+              content: newProductData.content_cpu,
+              label: "cpu",
+            },
+            {
+              content: newProductData.content_gpu,
+              label: "gpu",
+            },
+            {
+              content: newProductData.content_ram,
+              label: "ram",
+            },
+            {
+              content: newProductData.content_screen,
+              label: "screen",
+            },
+          ],
+        },
+      ]);
+      await setNewProductData({});
+      await document.getElementById("new-product").reset();
+       window.location.href = `${process.env.PUBLIC_URL}/#/products/`
+    } else {
+      alert('Please fill all fields')
+    }  
+    
+    
+
   };
 
   return (
     <Card>
         <CardContent icon={<CheckIcon />}>&#10004; In Draft</CardContent>
 
-      <ImageUploader />
+      <ImageUploader handleImages={(e) => setNewProductData({...newProductData, images: e})} />
 
       <CardContent>
         {newProductData.subTitle ? (

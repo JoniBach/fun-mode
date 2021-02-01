@@ -27,8 +27,8 @@ export const CardContent = (props) => {
           alt={props.src}
           src={props.src}
           style={{
-            width: props.width ? props.width : 'auto',
-            height: props.src ? (props.height ? props.height : 400) : "auto",
+            maxWidth: props.width ? props.width : 'auto',
+            maxHeight: props.src ? (props.height ? props.height : 400) : "auto",
             borderRadius: "25px",
             boxShadow: "inset 0 0 20px #000000",
           }}
