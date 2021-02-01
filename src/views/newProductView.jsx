@@ -15,7 +15,7 @@ import { TextField } from "../components/textField/textField";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import { NewProductsContext } from "../contexts/newProductContext";
 import { v4 as uuidv4 } from "uuid";
-
+import {ImageUploader} from '../components/imageUploader/imageUploader'
 const fields = [
   { key: "title", example: "Microsoft Surface 3", value: "Product Name" },
   { key: "subTitle", example: "Laptop", value: "Product Type" },
@@ -51,10 +51,9 @@ export function NewProductView() {
         title: newProductData.title,
         subTitle: newProductData.subTitle,
         images: [
-          "https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled",
-          "https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled",
-          "https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled",
-          "https://www.laptopsdirect.co.uk/Images/6BP88EA_1_Classic.jpg?v=1&switchoff=enabled",
+          "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
+          "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
+          "https://images.squarespace-cdn.com/content/v1/573e57871bbee0d6dea60fff/1553177786478-6W23ACKEX37M6VVHIR9L/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/laptop.png?format=1500w",
         ],
         details: [
           {
@@ -83,17 +82,9 @@ export function NewProductView() {
 
   return (
     <Card>
-      {/* <Carousel height={400}>
-          {
-          productData.images.map((d,i) => (
-          <CarouselCard src={d} />
-          // <CarouselCard src="https://c8.alamy.com/comp/WXFRPC/portrait-of-puppies-border-collie-in-a-basket-in-front-of-white-background-WXFRPC.jpg" />
+        <CardContent icon={<CheckIcon />}>&#10004; In Draft</CardContent>
 
-          ))
-          }
-        </Carousel> */}
-      {console.log("submission newProducts:", newProducts)}
-      {console.log("submission product data:", newProductData)}
+      <ImageUploader />
 
       <CardContent>
         {newProductData.subTitle ? (

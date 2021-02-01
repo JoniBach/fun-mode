@@ -8,7 +8,8 @@ const newIconSize = hover ? iconSize + (iconSize / 10) : iconSize
     <button
       class="main-btn"
       type={props.type ? props.type : 'button'}
-      onClick={() => props.onClick ? props.onClick : console.log('no click event')}
+      onClick={props.onClick ? props.onClick : console.log('no click event')}
+      // onClick={() => props.onClick ? props.onClick : console.log('no click event')}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
