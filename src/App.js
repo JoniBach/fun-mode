@@ -27,6 +27,7 @@ console.log(document.getElementById("close-hamburger-menu"))
 function App() {
   return (
     <div>
+      <div className='background'/>
       <HashRouter basename="/">
         <Nav
           title="FUN-MODE"
@@ -44,12 +45,12 @@ function App() {
         {/* <Switch> */}
         <Route exact path="/">
           {" "}
-          <Card link={`${process.env.PUBLIC_URL}/#/products/`}>
+          {/* <Card link={`${process.env.PUBLIC_URL}/#/products/`}>
             <CardContent>See products here</CardContent>
           </Card>
           <Card link={`${process.env.PUBLIC_URL}/#/newproduct/`}>
             <CardContent>Add products here</CardContent>
-          </Card>
+          </Card> */}
         </Route>
 
         <Route path="/products" component={ProductListViewHash}></Route>
